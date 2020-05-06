@@ -1,9 +1,13 @@
 package gui;
 
+import game.Snake;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Draw extends JLabel {
+
+    Point p;
 
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -13,6 +17,18 @@ public class Draw extends JLabel {
         //Draw Background
         g.setColor(Color.gray);
         g.fillRect(0,0, Gui.width, Gui.height);
+
+        //Draw Snake Tails
+        g.setColor(Color.green);
+        for (int i = 0; i < Snake.tails.size(); i++) {
+            p = Snake.ptc(Snake.tails.get(i).getX(), Snake.tails.get(i).getY());
+            g.fillRect(p.x, p.y, 32,32);
+        }
+
+        //Draw Snake Head
+        g.setColor(Color.ORANGE);
+        p = Snake.ptc(Snake.head.getX(), Snake.head.getY());
+        g.fillRect(p.x, p.y, 32, 32);
 
         //Draw Grid
         g.setColor(Color.BLACK);

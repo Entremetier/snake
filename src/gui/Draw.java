@@ -45,9 +45,14 @@ public class Draw extends JLabel {
 
         //Draw Border
         g.setColor(Color.red);
-
         //16x16 Felder mit einer größe von 32x32px
         g.drawRect(Gui.xoff, Gui.yoff, 512, 512);
+
+        //Draw Score
+        g.setColor(Color.black);
+        g.setFont(new Font("Arial", Font.BOLD, 20));
+        g.drawString("Score: " + Snake.score,5,15);
+        g.drawString("Highscore: " + Snake.bestscore, 655, 25);
 
         repaint();
     }

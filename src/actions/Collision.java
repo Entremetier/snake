@@ -6,8 +6,8 @@ public class Collision {
 
     public static boolean collideSelf() {
         for (int i = 0; i < Snake.tails.size(); i++) {
-            if (Snake.head.getX() == Snake.tails.get(i).getX() && Snake.head.getY() == Snake.tails.get(i).getY() &&
-                    !Snake.tails.get(i).isWait()) {
+            if (Snake.head.getX() == Snake.tails.get(i).getX() && Snake.head.getY() == Snake.tails.get(i).getY()
+                    && !Snake.tails.get(i).isWait()) {
                 return true;
             }
         }
@@ -24,6 +24,10 @@ public class Collision {
             Snake.pickUp.reset();
             Snake.addTail();
             //Score
+            Snake.score +=1;
+            if (Snake.score > Snake.bestscore){
+                Snake.bestscore = Snake.score;
+            }
         }
     }
 }

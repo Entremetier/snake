@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class Snake {
 
+    public static int score = 0, bestscore = 0;
     public static boolean waitToMove = false;
-
     public static Head head = new Head(7, 7);
     public static ArrayList<Tail> tails = new ArrayList<>();
     public static PickUp pickUp = new PickUp();
@@ -45,14 +45,18 @@ public class Snake {
         }
 
         //Move head
-        switch (head.getDir()){
-            case RIGHT: head.setX(head.getX() + 1);
-            break;
-            case LEFT: head.setX(head.getX() - 1);
+        switch (head.getDir()) {
+            case RIGHT:
+                head.setX(head.getX() + 1);
                 break;
-            case DOWN: head.setX(head.getY() + 1);
+            case UP:
+                head.setY(head.getY() - 1);
                 break;
-            case UP: head.setX(head.getY() - 1);
+            case LEFT:
+                head.setX(head.getX() - 1);
+                break;
+            case DOWN:
+                head.setY(head.getY() + 1);
                 break;
         }
     }

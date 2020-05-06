@@ -65,7 +65,7 @@ public class Snake {
     public static Point ptc(int x, int y) {
         Point p = new Point(0, 0);
         p.x = x * 32 + Gui.xoff;
-        p.y = x * 32 + Gui.yoff;
+        p.y = y * 32 + Gui.yoff;
 
         return p;
     }

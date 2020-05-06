@@ -9,20 +9,20 @@ public class Draw extends JLabel {
 
     Point p;
 
-    protected void paintComponent(Graphics g){
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
 
         //Draw Background
         g.setColor(Color.gray);
-        g.fillRect(0,0, Gui.width, Gui.height);
+        g.fillRect(0, 0, Gui.width, Gui.height);
 
         //Draw Snake Tails
         g.setColor(Color.green);
         for (int i = 0; i < Snake.tails.size(); i++) {
             p = Snake.ptc(Snake.tails.get(i).getX(), Snake.tails.get(i).getY());
-            g.fillRect(p.x, p.y, 32,32);
+            g.fillRect(p.x, p.y, 32, 32);
         }
 
         //Draw Snake Head
@@ -30,13 +30,17 @@ public class Draw extends JLabel {
         p = Snake.ptc(Snake.head.getX(), Snake.head.getY());
         g.fillRect(p.x, p.y, 32, 32);
 
+        //Draw Pickup
+        g.setColor(Color.red);
+        p = Snake.ptc(Snake.pickUp.getX(), Snake.pickUp.getY());
+        g.fillRect(p.x, p.y, 32, 32);
+
         //Draw Grid
         g.setColor(Color.BLACK);
         for (int i = 0; i < 16; i++) {
             for (int j = 0; j < 16; j++) {
-                g.drawRect(i * 32 + Gui.xoff, j * 32 + Gui.yoff, 32,32);
+                g.drawRect(i * 32 + Gui.xoff, j * 32 + Gui.yoff, 32, 32);
             }
-
         }
 
         //Draw Border
